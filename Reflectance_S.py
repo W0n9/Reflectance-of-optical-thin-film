@@ -88,11 +88,11 @@ Y = C / B
 # reflection coefficient
 r = (p1 - Y) / (p1 + Y)
 # reflectivity
-Refl = abs(r) ** 2
-print("Refl = ", Refl[0])
+Refl = r * r.conj()
+print("Refl = ", Refl[0].real)
 
 t = 2 * p1 / (B * p1 + C)
-Trans = 4 * np.real(p1) * np.real(ps) / (abs(p1 * B + C) ** 2)
-print("Trans = ", Trans[0])
+Trans = 4 * np.real(p1) * np.real(ps) / ((p1 * B + C) * (p1 * B + C).conj())
+print("Trans = ", Trans[0].real)
 
 # %%
